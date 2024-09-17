@@ -1,53 +1,29 @@
 import numpy as np
 
 def logica_x (tabuleiro = np.empty((3, 3), dtype=str)):
-        # ifs das colunas X
-    if tabuleiro[0, 0] == tabuleiro[1, 0] == tabuleiro [2, 0] == 'X':
+    for i in range(3):
+        #Verifica as colunas
+        if np.all(tabuleiro[:, i] == 'X'):
+            print('X ganhou')
+            print(tabuleiro)
+            return True
+        
+        #Verifica as linhas
+        if np.all(tabuleiro[i, :] == 'X'):
+            print('X ganhou')
+            print(tabuleiro)
+            return True
+        
+    #Verifica as diagonais 
+    if np.all(np.diag(tabuleiro) == 'X'):
         print('X ganhou')
         print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[0, 1] == tabuleiro[1, 1] == tabuleiro [2, 1] == 'X':
+        return True
+        
+    if np.all(np.diag(np.fliplr(tabuleiro)) == 'X'):
         print('X ganhou')
         print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[0, 2] == tabuleiro[1, 2] == tabuleiro [2, 2] == 'X':
-        print('X ganhou')
-        print(tabuleiro)
-        return True;
-    
-
-
-    
-    # ifs das linhas X
-    if tabuleiro[0, 0] == tabuleiro[0, 1] == tabuleiro [0, 2] == 'X':
-        print('X ganhou')
-        print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[1, 0] == tabuleiro[1, 1] == tabuleiro [1, 2] == 'X':
-        print('X ganhou')
-        print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[2, 0] == tabuleiro[2, 1] == tabuleiro [2, 2] == 'X':
-        print('X ganhou')
-        print(tabuleiro)
-        return True;
-    
-
-    # ifs das diagonais X
-
-    if tabuleiro[0, 0] == tabuleiro[1, 1] == tabuleiro [2, 2] == 'X':
-        print('X ganhou')
-        print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[0, 2] == tabuleiro[1, 1] == tabuleiro [2, 0] == 'X':
-        print('X ganhou')
-        print(tabuleiro)
-        return True;
+        return True
 
 
 
@@ -56,49 +32,26 @@ def logica_x (tabuleiro = np.empty((3, 3), dtype=str)):
 
 def logica_o (tabuleiro = np.empty((3, 3), dtype=str)):
     
-    # ifs das colunas O
-    if tabuleiro[0, 0] == tabuleiro[1, 0] == tabuleiro [2, 0] == 'O':
-        print('O ganhou')
-        print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[0, 1] == tabuleiro[1, 1] == tabuleiro [2, 1] == 'O':
-        print('O ganhou')
-        print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[0, 2] == tabuleiro[1, 2] == tabuleiro [2, 2] == 'O':
-        print('O ganhou')
-        print(tabuleiro)
-        return True;
-    
+    for i in range(3):
+        #Verifica as colunas
+        if np.all(tabuleiro[:, i] == 'O'):
+            print('O ganhou')
+            print(tabuleiro)
+            return True
+        
+        #Verifica as linhas
+        if np.all(tabuleiro[i, :] == 'O'):
+            print('O ganhou')
+            print(tabuleiro)
+            return True
 
-
-    
-    # ifs das linhas O
-    if tabuleiro[0, 0] == tabuleiro[0, 1] == tabuleiro [0, 2] == 'O':
+    #Verifica as diagonais 
+    if np.all(np.diag(tabuleiro) == 'O'):
         print('O ganhou')
         print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[1, 0] == tabuleiro[1, 1] == tabuleiro [1, 2] == 'O':
+        return True
+        
+    if np.all(np.diag(np.fliplr(tabuleiro)) == 'O'):
         print('O ganhou')
         print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[2, 0] == tabuleiro[2, 1] == tabuleiro [2, 2] == 'O':
-        print('O ganhou')
-        print(tabuleiro)
-        return True;
-    
-
-    # ifs das diagonais O
-    if tabuleiro[0, 0] == tabuleiro[1, 1] == tabuleiro [2, 2] == 'O':
-        print('O ganhou')
-        print(tabuleiro)
-        return True;
-    
-    elif tabuleiro[0, 2] == tabuleiro[1, 1] == tabuleiro [2, 0] == 'O':
-        print('O ganhou')
-        print(tabuleiro)
-        return True;
+        return True   
