@@ -9,7 +9,7 @@ jogador2 = str(input("Defina o nome do jogador 2: "))
 victory = False
 
 print('''  0   1  2
-0 ['' '' '']                  
+0 ['' '' '']
 1 ['' '' '']
 2 ['' '' '']
 ''')
@@ -24,7 +24,8 @@ while True:
     jogadap1(linha, coluna, valor)
     checkvalid(linha, coluna)
     checkdraw()
-    checkvictoryp1(jogador1)
+    if checkvictoryp1(jogador1) == True:
+        break
 
     print(f"Turno do {jogador2}")
     linha = int(input("Defina o valor da linha: "))
@@ -34,4 +35,9 @@ while True:
     jogadap2(linha, coluna, valor)
     checkvalid(linha, coluna)
     checkdraw()
-    checkvictoryp2(jogador2)
+
+    if checkvictoryp2(jogador2) == True:
+        break
+
+
+
