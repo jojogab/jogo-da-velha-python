@@ -1,47 +1,37 @@
-import os
-import numpy as np
-import logica as lgc
-import regrasJogada as rj
+from AreaDoJogo.Area import jogadap1, jogadap2
+from Checks.check import checkvalid, checkvictoryp1, checkvictoryp2, checkdraw
 
-tabuleiro = np.empty((3, 3), dtype=str)
+print("""### JOGO DA VELHA ###""")
 
-nomeJogador1 = input('Digite o nome do primeiro jogador: ')
-nomeJogador2 = input('Digite o nome do segundo jogador: ')
+jogador1 = str(input("Defina o nome do jogador 1: "))
+jogador2 = str(input("Defina o nome do jogador 2: "))
 
-posicaoX = int(input('Digite a posição X para sua jogada: '))
-posicaoY = int(input('Digite a posição Y para sua jogada: '))
-    
-jogadaJ1 = input('Digite sua jogada: ').upper()
-    
-rj.verificaJogada(tabuleiro, jogadaJ1, posicaoX, posicaoY, nomeJogador1, nomeJogador2)
-    
-posicaoX = int(input('Digite a posição X para sua jogada: '))
-posicaoY = int(input('Digite a posição Y para sua jogada: '))
-    
-jogadaJ2 = input('Digite sua jogada: ').upper()
+victory = False
 
-rj.verificaJogada(tabuleiro, jogadaJ2, posicaoX, posicaoY, nomeJogador1, nomeJogador2)
+print('''  0   1  2
+0 ['' '' '']                  
+1 ['' '' '']
+2 ['' '' '']
+''')
 
 while True:
-    print(tabuleiro)
 
-    posicaoX = int(input('Digite a posição X para sua jogada: '))
-    posicaoY = int(input('Digite a posição Y para sua jogada: '))
-    
-    jogadaJ1 = input('Digite sua jogada: ').upper()
-    
-    rj.verificaJogada(tabuleiro, jogadaJ1, posicaoX, posicaoY, nomeJogador1, nomeJogador2)
-    
-    posicaoX = int(input('Digite a posição X para sua jogada: '))
-    posicaoY = int(input('Digite a posição Y para sua jogada: '))
-    
-    jogadaJ2 = input('Digite sua jogada: ').upper()
-    
-    rj.verificaJogada(tabuleiro, jogadaJ2, posicaoX, posicaoY, nomeJogador1, nomeJogador2)
+    print(f"Turno do {jogador1}")
+    linha = int(input("Defina o valor da linha: "))
+    coluna = int(input("Defina o valor da coluna: "))
+    valor = 'X'
 
-    jogadaJ1 = ''
-    jogadaJ2 = ''
-    
-    os.system('cls' if os.name == 'nt' else 'clear')
+    jogadap1(linha, coluna, valor)
+    checkvalid(linha, coluna)
+    checkdraw()
+    checkvictoryp1(jogador1)
 
-    
+    print(f"Turno do {jogador2}")
+    linha = int(input("Defina o valor da linha: "))
+    coluna = int(input("Defina o valor da coluna: "))
+    valor = 'O'
+
+    jogadap2(linha, coluna, valor)
+    checkvalid(linha, coluna)
+    checkdraw()
+    checkvictoryp2(jogador2)
