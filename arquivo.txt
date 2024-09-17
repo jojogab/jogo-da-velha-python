@@ -1,4 +1,4 @@
-idel ganhou!
-[['X' 'O' 'X']
- ['O' 'X' 'O']
- ['X' '' '']]
+O jogo deu velha!
+[['O' 'X' 'X']
+ ['X' 'O' 'O']
+ ['O' 'X' 'X']]

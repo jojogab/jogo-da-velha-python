@@ -13,3 +13,6 @@ def jogadap2(linha, coluna, valor):
         area[linha, coluna] = valor
     else:
         print('A linha já está em uso, perdeu um round')
+
+
+

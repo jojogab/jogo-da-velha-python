@@ -14,7 +14,7 @@ print('''  0   1  2
 2 ['' '' '']
 ''')
 
-for i in range(4):
+while True:
 
     print(f"Turno do {jogador1}")
     linha = int(input("Defina o valor da linha: "))
@@ -23,7 +23,8 @@ for i in range(4):
 
     jogadap1(linha, coluna, valor)
     checkvalid(linha, coluna)
-    checkdraw()
+    if checkdraw():
+        break
     if checkvictoryp1(jogador1) == True:
         break
 
@@ -34,12 +35,8 @@ for i in range(4):
 
     jogadap2(linha, coluna, valor)
     checkvalid(linha, coluna)
-    checkdraw()
+    if checkdraw():
+        break
     if checkvictoryp2(jogador2) == True:
         break
-
-    if i == 5:
-        print(i)
-        break
-
-
+    

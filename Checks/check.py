@@ -76,8 +76,18 @@ def checkvictoryp2(jogador):
             arq_resultado.write(f'{area}\n')
             arq_resultado.close()
             return True
-
+        
     return False
 
 def checkdraw():
-    return not np.any(area == ' ')
+    
+    filled_spaces = np.count_nonzero(area != "")
+    if not np.any(area == ' ') and filled_spaces == 9:
+        print("O jogo deu velha!")
+        print(area)
+        arq_resultado = open('arquivo.txt', 'w')
+        arq_resultado.write("O jogo deu velha!\n")
+        arq_resultado.write(f'{area}\n')
+        arq_resultado.close()
+        return True
+    return False
